@@ -1,0 +1,38 @@
+// Array para armazenar os clientes
+let clientes = [];
+
+// Função para adicionar um novo cliente
+function adicionarCliente(nome, telefone, email) {
+  const cliente = {
+    nome: nome,
+    telefone: telefone,
+    email: email
+  };
+  clientes.push(cliente);
+  console.log("Cliente adicionado com sucesso!");
+}
+
+// Função para listar todos os clientes
+function listarClientes() {
+  console.log("Lista de Clientes:");
+  clientes.forEach((cliente, index) => {
+    console.log(`${index + 1}. Nome: ${cliente.nome}, Telefone: ${cliente.telefone}, Email: ${cliente.email}`);
+  });
+}
+
+// Função para buscar um cliente pelo nome
+function buscarClientePorNome(nome) {
+  const clienteEncontrado = clientes.find(cliente => cliente.nome.toLowerCase() === nome.toLowerCase());
+  if (clienteEncontrado) {
+    console.log("Cliente encontrado:");
+    console.log(`Nome: ${clienteEncontrado.nome}, Telefone: ${clienteEncontrado.telefone}, Email: ${clienteEncontrado.email}`);
+  } else {
+    console.log("Cliente não encontrado.");
+  }
+}
+
+// Exemplo de uso
+adicionarCliente("João Silva", "11999999999", "joao@email.com");
+adicionarCliente("Maria Santos", "21888888888", "maria@email.com");
+listarClientes();
+buscarClientePorNome("João Silva");
